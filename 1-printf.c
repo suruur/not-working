@@ -19,42 +19,20 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
-			switch (format[i])
+			if (format[i] == 'd' || format[i] == 'i')
 			{
-				case 'c':
-					{
-						int c = va_arg(args, int);
-
-						putchar(c);
-						chars_count++;
-						break;
-					}
-				case 's':
-					{
-						const char *str = va_arg(args, const char *);
-
-						for (j = 0; str[j] != '\0'; j++)
-						{
-							putchar(str[j]);
-							chars_count++;
-						}
-						break;
-					}
-				case '%':
-					{
-						putchar('%');
-						chars_count++;
-						break;
-					}
-				default:
-					{
-						putchar('%');
-						putchar(format[i]);
-						chars_count += 2;
-					}
+				j = va_arg(args, int);
+				putchar(j);
+				chars_count++;
+			}
+			else
+			{
+				putchar('%');
+				putchar(format[i]);
+				chars_count += 2;
 			}
 		}
 		else
