@@ -49,6 +49,23 @@ int _printf(const char *format, ...)
 						chars_count++;
 						break;
 					}
+				case 'i':
+					{
+						int it = va_arg(args, int);
+
+						putchar(it);
+						chars_count++;
+						break;
+					}
+				case 'd':
+					{
+						int dd = va_arg(args, int);
+
+						putchar(dd);
+					
+						chars_count++;
+						break;
+					}
 				default:
 					{
 						putchar('%');
