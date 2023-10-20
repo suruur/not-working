@@ -70,13 +70,13 @@ int _printf(const char *format, ...)
 					}
 				case 'b':
 					{
-						break;
+						chars_count = task2(format, ...);
 					}
 				default:
 					{
 						putchar('%');
-						//putchar(format[i]);
-						chars_count++;
+						putchar(format[i]);
+						chars_count += 2;
 					}
 			}
 			}
