@@ -1,15 +1,19 @@
-#include "main.h"
 #include <stdio.h>
+#include <limits.h>
+#include "main.h"
 int main(void)
 {
 	int len, len2;
+	
+	len = _printf("let's try to print a simple sentence. \n");
+	len2 = printf("let's try to print a simple sentence. \n");
 
-	len = printf("%s", "SSSSS\n");
-	len2 =  _printf("%s", "SSSSS\n");
 
-	printf("Length: [%d, %i]\n", len, len);
-	_printf("Length: [%d, %i]\n", len2, len2);
+	_printf("Length: [%c, %c]\n", len, len);
+	printf("Length: [%d, %i]\n", len2, len2);
+
 
 	return (0);
-
 }
+
+
